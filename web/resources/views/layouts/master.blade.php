@@ -70,24 +70,25 @@
 
             $('.btn-delete-resource').click(function (event) {
                 event.preventDefault();
-                var form = $(this).data('form-id') != null ? $('#' + $(this).data('form-id')) : $(this).parent();
-                if($(this).hasClass('redirect-after-confirmation')) {
-                    swal.queue([{
-                        title: 'Etes-vous sûr?',
-                        text: $(this).data('confirmation-message'),
-                        type: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Oui, Supprimer!',
-                        showLoaderOnConfirm: true,
-                        preConfirm:()  => {
-                            return new Promise((resolve) =>  {
-                                form.submit();
-                            })
-                        }
-                    }])
-                }
+                alert('test')
+                // var form = $(this).data('form-id') != null ? $('#' + $(this).data('form-id')) : $(this).parent();
+                // if($(this).hasClass('redirect-after-confirmation')) {
+                //     swal.queue([{
+                //         title: 'Etes-vous sûr?',
+                //         text: $(this).data('confirmation-message'),
+                //         type: 'warning',
+                //         showCancelButton: true,
+                //         confirmButtonColor: '#3085d6',
+                //         cancelButtonColor: '#d33',
+                //         confirmButtonText: 'Oui, Supprimer!',
+                //         showLoaderOnConfirm: true,
+                //         preConfirm:()  => {
+                //             return new Promise((resolve) =>  {
+                //                 // form.submit();
+                //             })
+                //         }
+                //     }])
+                // }
             });
         })
     </script>

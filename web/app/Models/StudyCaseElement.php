@@ -32,4 +32,11 @@ class StudyCaseElement extends Model
     {
         return $this->hasMany(StudyCaseElementContent::class, 'study_case_element_id');
     }
+
+    public function getContentBySudyCaseId($studyCaseId)
+    {
+        return $this->studyCaseElementContents()
+            ->where('study_case_id', $studyCaseId)
+            ->first();
+    }
 }

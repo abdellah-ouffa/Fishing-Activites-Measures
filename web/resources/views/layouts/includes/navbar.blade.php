@@ -39,7 +39,7 @@
             </button>
 
             <div class="dropdown-menu dropdown-menu-right mt-3">
-                <a class="dropdown-item" href="{{ route('shared.profile') }}">Mon Profile</a>
+                <a class="dropdown-item" href="{{ route('admins.show', ['id' => auth()->id()]) }}">Mon Profile</a>
                 <div class="separator"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

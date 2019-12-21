@@ -44,7 +44,7 @@
                                             <form method="post" action="{{ route('admins.destroy', ['id' => $admin->id]) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a class="dropdown-item btn-delete-resource redirect-after-confirmation" data-confirmation-message="Voulez vous vraiment supprimer ce l'administrateur : {{ $admin->full_name }} ?" href="{{ route('admins.destroy', ['id' => $admin->id]) }}">Supprimer</a>
+                                                <a class="dropdown-item btn-delete-resource redirect-after-confirmation" data-confirmation-message="Voulez vous vraiment supprimer l'administrateur : {{ $admin->full_name }} ?" href="{{ route('admins.destroy', ['id' => $admin->id]) }}">Supprimer</a>
                                             </form>
                                         </div>
                                     </div>
