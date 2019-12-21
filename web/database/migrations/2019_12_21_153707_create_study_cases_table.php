@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateControlMeasureTypesTable extends Migration
+class CreateStudyCasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateControlMeasureTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('control_measure_types', function (Blueprint $table) {
+        Schema::create('study_cases', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateControlMeasureTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('control_measure_types');
+        Schema::dropIfExists('study_cases');
     }
 }
