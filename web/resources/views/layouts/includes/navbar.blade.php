@@ -30,27 +30,6 @@
     </div>
 
     <div class="navbar-right">
-            <div class="header-icons d-inline-block align-middle">
-                @if (auth()->user()->role == Constant::USER_ROLES['admin'])
-                    <div class="dropdown d-inline-block">
-                        <button class="btn btn-empty dropdown-toggle mb-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Annee scolaire : {{ config('scholaryear.current_scholar_year') }}
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 42px, 0px); top: 0px; left: 0px; will-change: transform;">
-                            @foreach ($allScholarYears as $scholarYear)
-                                <a href="{{ Helper::switchScholarYearRoute($scholarYear->scholar_year) }}" 
-                                    class="dropdown-item {{ $scholarYear->scholar_year == config('scholaryear.current_scholar_year') ? 'active' : '' }}">{{ $scholarYear->scholar_year }}</a>
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
-
-                {{-- <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton">
-                    <i class="simple-icon-size-fullscreen"></i>
-                    <i class="simple-icon-size-actual"></i>
-                </button> --}}
-            </div>
-
         <div class="user d-inline-block">
             <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="name">{{ auth()->user()->full_name }}</span>

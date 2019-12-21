@@ -17,9 +17,13 @@ class AdminMiddlware
      */
     public function handle($request, Closure $next)
     {
+        if(!Auth::check()) {
+            return redirect('/login');
+        }
+
         if(!auth()->user()->is_active) {
             Auth::logout();
-            return redirect('/');
+            return redirect('/login');
         }
 
         if(auth()->user()->role == Constant::USER_ROLES['admin']) {

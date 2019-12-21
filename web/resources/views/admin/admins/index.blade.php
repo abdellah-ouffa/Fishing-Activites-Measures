@@ -26,10 +26,10 @@
                                         <p class="list-item-heading mb-1 truncate">{{ $admin->full_name }}</p>
                                     </a>
                                     <p class="mb-1 text-small text-muted text-center w-20 w-sm-100">
-                                        {{ $admin->tel }}    
+                                        {{ $admin->email }}    
                                     </p>
                                     <p class="mb-1 text-small text-muted text-center w-20 w-sm-100">
-                                        {{ $admin->email }}    
+                                        {{ $admin->ppr_number }}    
                                     </p>
                                     <div class="text-center w-15 w-sm-100">
                                         {!! $admin->is_active_badge !!}

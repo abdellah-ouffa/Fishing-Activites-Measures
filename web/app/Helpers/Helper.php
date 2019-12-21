@@ -52,10 +52,6 @@ class Helper
 	/*
 	* routes helpers
 	*/
-	public static function switchScholarYearRoute($scholarYear) {
-		return preg_replace('/' . config('scholaryear.current_scholar_year') . '/', $scholarYear, request()->url(), 1);
-	}
-
 	public static function routeIs($expression) {
 		return fnmatch($expression, Route::currentRouteName());			
 	}

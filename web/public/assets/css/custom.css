@@ -114,3 +114,7 @@ input[type="color" i] {
 .dashboard-list-with-user {
 	height: 495px !important;
 }
+
+.required {
+	color: #f00;
+}

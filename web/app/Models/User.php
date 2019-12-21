@@ -49,10 +49,10 @@ class User extends Authenticatable
         'first_name', 
         'last_name', 
         'picture', 
-        'tel', 
         'email', 
         'password', 
         'visible_password', 
+        'ppr_number',
         'role', 
         'is_active', 
     ];
@@ -76,30 +76,6 @@ class User extends Authenticatable
         'created_at', 
         'updated_at'
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function messages()
-    {
-        return $this->hasMany(Message::class, 'user_id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function student()
-    {
-        return $this->hasOne(Student::class, 'user_id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function teacher()
-    {
-        return $this->hasOne(Teacher::class, 'user_id');
-    }
 
     /**
      * Get the fullName of User

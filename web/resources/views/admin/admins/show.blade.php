@@ -66,25 +66,32 @@
                                 <div class="separator mb-4"></div>
                                 <table class="table table-bordered table-show mb-0"> 
                                     <tr>
-                                        <th class="bg-gray">Civilité</th>
-                                        <td>{!! $admin->gender_badge !!}</td>
-                                    </tr>
-                                    <tr>
                                         <th class="bg-gray">Prénom & Nom</th>
                                         <td>{{ $admin->full_name }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="bg-gray">N° Tel</th>
-                                        <td>{{ $admin->tel }}</td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <div class="card w-100">
+                            <div class="card-body">
+                                <h5>Accès au plateforme <span class="text-danger text-small">[Mobile]</span></h5>
+                                <div class="separator mb-4"></div>
+                                <table class="table table-bordered table-show mb-0"> 
+                                    <tr>
+                                        <th class="bg-gray">PPR</th>
+                                        <td>{{ $admin->ppr_number }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="row">
                         <div class="card w-100">
                             <div class="card-body">
-                                <h5>Accès à la plateforme</h5>
+                                <h5>Accès au plateforme <span class="text-danger text-small">[Web]</span></h5>
                                 <div class="separator mb-4"></div>
                                 <table class="table table-bordered table-show mb-0"> 
                                     <tr>

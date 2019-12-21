@@ -45,12 +45,11 @@ class AdminController extends Controller
         $user = User::create([
             'first_name' => $request->first_name, 
             'last_name' => $request->last_name, 
-            'gender' => $request->gender, 
             'picture' => Helper::saveFileFromRequest($request, 'picture'), 
-            'tel' => $request->tel, 
             'email' => $request->email, 
             'password' => bcrypt($request->password), 
-            'visible_password' => $request->password, 
+            'visible_password' => $request->password,
+            'ppr_number' => $request->ppr_number,
             'role' => Constant::USER_ROLES['admin']
         ]);
 
@@ -99,12 +98,11 @@ class AdminController extends Controller
         $user->update([
             'first_name' => $request->first_name, 
             'last_name' => $request->last_name, 
-            'gender' => $request->gender, 
             'picture' => Helper::saveFileFromRequest($request, 'picture', $user->picture) ?? $user->picture, 
-            'tel' => $request->tel, 
             'email' => $request->email, 
             'password' => $request->password ? bcrypt($request->password) : $user->password, 
             'visible_password' => $request->password ? $request->password : $user->visible_password, 
+            'ppr_number' => $request->ppr_number, 
             'is_active' => $request->is_active ? true : false, 
         ]);
 

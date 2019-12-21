@@ -38,7 +38,7 @@
 	                    	<input type="file" class="hide" name="picture" id="file-user-picture">
 	                    </div>
 	                    <div class="card-footer bg-white">
-	                    	<button id="select-user-picture" type="button" class="btn btn-primary btn-block">Choisie une image</button>
+	                    	<button id="select-user-picture" type="button" class="btn btn-primary btn-block">Choisir une image</button>
 	                    </div>
 	                </div>
 
@@ -63,21 +63,6 @@
 	                        <div class="row">
 	                        	<div class="col-md-6">
 		                            <div class="form-group">
-		                                <label for="gender">Civilité</label>
-		                                <select name="gender" class="form-control @error('gender') is-invalid @enderror" id="gender">
-		                                	@foreach (Constant::USERS_GENDERS as $gender)
-		                                		<option {{ old('gender', $admin->gender) == $gender ? 'selected' : '' }} value="{{ $gender }}">{{ $gender }}</option>
-		                                	@endforeach
-		                                </select>
-		                            	@error('gender')
-		                                    <span class="invalid-feedback" role="alert">
-		                                        <strong>{{ $message }}</strong>
-		                                    </span>
-		                                @enderror
-		                            </div>
-	                        	</div>
-	                        	<div class="col-md-3">
-		                            <div class="form-group">
 		                                <label for="first_name">Nom</label>
 		                                <input type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" id="first_name" value="{{ old('first_name', $admin->first_name) }}" placeholder="Nom">
 		                            	@error('first_name')
@@ -87,7 +72,7 @@
 		                                @enderror
 		                            </div>
 	                        	</div>
-	                        	<div class="col-md-3">
+	                        	<div class="col-md-6">
 		                            <div class="form-group">
 		                                <label for="last_name">Prénom</label>
 		                                <input type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" id="last_name" value="{{ old('last_name', $admin->last_name) }}" placeholder="Prénom">
@@ -99,17 +84,20 @@
 		                            </div>
 	                        	</div>
 	                        </div>
-                            <div class="form-group">
-                                <label for="tel">N° Tel</label>
-                                <input type="tel" class="form-control @error('tel') is-invalid @enderror" name="tel" id="tel" value="{{ old('tel', $admin->tel) }}" placeholder="N° Tel">
-                            	@error('tel')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
 
-	                        <h5 class="mt-4">Accès à la plateforme</h5>
+							<h5 class="mt-4">Accès au plateforme <span class="text-danger text-small">[Mobile]</span></h5>
+	                        <div class="separator mb-4"></div>
+							<div class="form-group">
+							    <label for="ppr_number">PPR</label>
+							    <input type="text" class="form-control @error('ppr_number') is-invalid @enderror" name="ppr_number" id="ppr_number" value="{{ old('ppr_number', $admin->ppr_number) }}" placeholder="PPR">
+								@error('ppr_number')
+							        <span class="invalid-feedback" role="alert">
+							            <strong>{{ $message }}</strong>
+							        </span>
+							    @enderror
+							</div>
+
+	                        <h5 class="mt-4">Accès au plateforme <span class="text-danger text-small">[Web]</span></h5>
 	                        <div class="separator mb-4"></div>
 							<div class="row">
 		                        <div class="col-md-6">
