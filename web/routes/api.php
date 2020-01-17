@@ -23,5 +23,5 @@ Route::group([
     'namespace' => 'API\V1',
     'prefix' => 'v1'
 ], function() {
-    Route::get('login', 'AuthController@login');
+    Route::post('login', 'AuthController@login');
 });

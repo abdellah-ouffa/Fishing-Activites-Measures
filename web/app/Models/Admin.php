@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use EloquentFilter\Filterable;
 
 /**
  * @property integer $id
@@ -17,6 +18,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Admin extends Model
 {
+    use Filterable;
+
+    public function modelFilter()
+    {
+        return $this->provideFilter(\App\ModelFilters\AdminFilter::class);
+    }
     /**
      * The "type" of the auto-incrementing ID.
      * 

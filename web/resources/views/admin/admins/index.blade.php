@@ -1,3 +1,5 @@
+
+
 @extends('layouts.master')
 
 @section('title', 'Liste des administrateurs')
@@ -18,21 +20,21 @@
                     @forelse ($admins as $admin)
                         <div class="card d-flex flex-row mb-3">
                             <a class="d-flex" href="Pages.Details.html">
-                                <img src="{{ $admin->picture_path }}" alt="{{ $admin->full_name }}" class="list-thumbnail responsive border-0 card-img-left">
+                                <img src="{{ $admin->user->picture_path }}" alt="{{ $admin->user->full_name }}" class="list-thumbnail responsive border-0 card-img-left">
                             </a>
                             <div class="pl-2 d-flex flex-grow-1 min-width-zero">
                                 <div class="card-body align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero align-items-lg-center">
                                     <a href="{{ route('admins.show', ['id' => $admin->id]) }}" class="w-15 w-sm-100">
-                                        <p class="list-item-heading mb-1 truncate">{{ $admin->full_name }}</p>
+                                        <p class="list-item-heading mb-1 truncate">{{ $admin->user->full_name }}</p>
                                     </a>
                                     <p class="mb-1 text-small text-muted text-center w-20 w-sm-100">
                                         {{ $admin->email }}    
                                     </p>
                                     <p class="mb-1 text-small text-muted text-center w-20 w-sm-100">
-                                        {{ $admin->ppr_number }}    
+                                        {{ $admin->user->ppr_number }}    
                                     </p>
                                     <div class="text-center w-15 w-sm-100">
-                                        {!! $admin->is_active_badge !!}
+                                        {!! $admin->user->is_active_badge !!}
                                     </div>
                                     <div class="btn-group mb-1">
                                         <button class="btn btn-xs btn-danger dropdown-toggle btn-toggle-without-icon" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,7 +46,7 @@
                                             <form method="post" action="{{ route('admins.destroy', ['id' => $admin->id]) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a class="dropdown-item btn-delete-resource redirect-after-confirmation" data-confirmation-message="Voulez vous vraiment supprimer l'administrateur : {{ $admin->full_name }} ?" href="{{ route('admins.destroy', ['id' => $admin->id]) }}">Supprimer</a>
+                                                <a class="dropdown-item btn-delete-resource redirect-after-confirmation" data-confirmation-message="Voulez vous vraiment supprimer l'administrateur : {{ $admin->user->full_name }} ?" href="{{ route('admins.destroy', ['id' => $admin->id]) }}">Supprimer</a>
                                             </form>
                                         </div>
                                     </div>

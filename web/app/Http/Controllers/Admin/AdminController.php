@@ -19,7 +19,8 @@ class AdminController extends Controller
     public function index()
     {
         return view('admin.admins.index', [
-            'admins' => Admin::paginate(Constant::COUNT_PER_PAGE)
+            'admins' => Admin::filter(request()->all())
+                            ->paginate(Constant::COUNT_PER_PAGE)
         ]);
     }
 
@@ -71,7 +72,7 @@ class AdminController extends Controller
     public function show($id)
     {
         return view('admin.admins.show', [
-            'admin' => >Admin::findOrFail($id)
+            'admin' => Admin::findOrFail($id)
         ]);
     }
 
@@ -103,15 +104,14 @@ class AdminController extends Controller
             'email' => $request->email, 
             'password' => bcrypt($request->password),
             'visible_password' => $request->password,
-            'user_id' => $user->id, 
-            'picture' => Helper::saveFileFromRequest($request, 'picture', $user->picture) ?? $user->picture, 
+            'picture' => Helper::saveFileFromRequest($request, 'picture', $admin->user->picture) ?? $admin->user->picture, 
         ]);
 
-        $user->update([
+        $admin->user->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name, 
-            'password' => $request->password ? bcrypt($request->password) : $user->password, 
-            'visible_password' => $request->password ? $request->password : $user->visible_password, 
+            'password' => $request->password ? bcrypt($request->password) : $admin->user->password, 
+            'visible_password' => $request->password ? $request->password : $admin->user->visible_password, 
             'ppr_number' => $request->ppr_number, 
             'is_active' => $request->is_active ? true : false, 
         ]);

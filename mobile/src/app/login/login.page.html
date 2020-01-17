@@ -1,0 +1,13 @@
+<ion-content id="login-page" padding class="container" style="background-image: url(assets/img/logo/login-bg.png)">
+  <div class="vertical-center" padding>
+    <div class="header">
+      <img class="logo" src="assets/img/logo/login-logo.png" />
+    </div>
+    <br>
+    <form (ngSubmit)="login()">
+      <ion-input class="ppr-number-input" name="ppr_number" [(ngModel)]="credentials.PPRNumber" required placeholder="N°. PPR" type="number"></ion-input>
+      <br>
+      <ion-button class="login-button" type="submit">Connecter</ion-button>
+    </form>
+  </div>
+</ion-content>

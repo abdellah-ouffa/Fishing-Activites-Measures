@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use EloquentFilter\Filterable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -21,12 +20,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
-    use Filterable;
-
-    public function modelFilter()
-    {
-        return $this->provideFilter(\App\ModelFilters\AdminFilter::class);
-    }
     
     /**
      * The "type" of the auto-incrementing ID.
@@ -75,6 +68,11 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function admin()
+    {
+        return $this->hasOne(Admin::class, 'user_id');
     }
 
     /**

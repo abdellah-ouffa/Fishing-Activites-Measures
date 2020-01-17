@@ -1,0 +1,32 @@
+ion-content{
+    --background: #FFF;
+    // --background-image: url('assets/img/logo/login-bg.png');
+}
+.container {
+    display: flex;           /* establish flex container */
+    flex-direction: row;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;     /* center items horizontally, in this case */
+    height: 100%;
+}
+.vertical-center {
+    text-align: center;
+}
+.logo {
+    margin: 0 auto;
+    margin-top: 50px;
+    height: 265px;
+    padding-bottom: 50px;
+}
+.header {
+    text-align: center;
+    width: 100%;
+}
+.login-button {
+    width: 100%;
+}
+.ppr-number-input {
+    background: #00F;
+    padding: 10px;
+    color: #fff;
+}

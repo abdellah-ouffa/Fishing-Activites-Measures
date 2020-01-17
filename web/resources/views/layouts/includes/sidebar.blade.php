@@ -9,6 +9,11 @@
                             <span>Tableau de bord</span>
                         </a>
                     </li>
+                    <li {!! Helper::routeIs('rules.index') ? 'class="active"' : '' !!}>
+                        <a href="{{ route('rules.index') }}">
+                            <i class="simple-icon-paper-clip"></i> Annexes
+                        </a>
+                    </li>
                     <li {!! Helper::routeIs('admins.index') ? 'class="active"' : '' !!}>
                         <a href="{{ route('admins.index') }}">
                             <i class="iconsminds-male-female"></i> Administrateurs

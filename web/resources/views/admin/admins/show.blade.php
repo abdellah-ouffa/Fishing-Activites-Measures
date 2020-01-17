@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <h1>Administrateur : {{ $admin->full_name }}</h1>
+                <h1>Administrateur : {{ $admin->user->full_name }}</h1>
                 <div class="text-zero top-right-button-container">
                     <button type="button" class="btn btn-lg btn-primary dropdown-toggle dropdown-toggle-split top-right-button top-right-button-single" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     ACTIONS
@@ -16,7 +16,7 @@
                         <form method="post" action="{{ route('admins.destroy', ['id' => $admin->id]) }}">
                             @csrf
                             @method('DELETE')
-                            <a class="dropdown-item btn-delete-resource redirect-after-confirmation" data-confirmation-message="Voulez vous vraiment supprimer ce l'administrateur : {{ $admin->full_name }} ?" href="{{ route('admins.destroy', ['id' => $admin->id]) }}">Supprimer</a>
+                            <a class="dropdown-item btn-delete-resource redirect-after-confirmation" data-confirmation-message="Voulez vous vraiment supprimer ce l'administrateur : {{ $admin->user->full_name }} ?" href="{{ route('admins.destroy', ['id' => $admin->id]) }}">Supprimer</a>
                         </form>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('admins.index') }}">Administrateurs</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ $admin->full_name }}</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ $admin->user->full_name }}</li>
                     </ol>
                 </nav>
                 <div class="separator mb-4"></div>
@@ -40,17 +40,17 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="text-center">
-                            <img id="admin-picture" class="img-circle border-gray" style="width: 150px; height: 150px;" src="{{ $admin->picture_path }}" >
+                            <img id="admin-picture" class="img-circle border-gray" style="width: 150px; height: 150px;" src="{{ $admin->user->picture_path }}" >
                             <input type="file" class="hide" name="picture" id="file-admin-picture">
                         </div>
                         <div>
                             <div class="text-center pt-2">
                                 <p class="list-item-heading pt-2 text-bold">
-                                    <strong>{{ $admin->full_name }}</strong>
+                                    <strong>{{ $admin->user->full_name }}</strong>
                                 </p>
                             </div>
                             <p class="text-center">
-                                {!! $admin->is_active_badge !!}
+                                {!! $admin->user->is_active_badge !!}
                             </p>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                                 <table class="table table-bordered table-show mb-0"> 
                                     <tr>
                                         <th class="bg-gray">Prénom & Nom</th>
-                                        <td>{{ $admin->full_name }}</td>
+                                        <td>{{ $admin->user->full_name }}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -81,7 +81,7 @@
                                 <table class="table table-bordered table-show mb-0"> 
                                     <tr>
                                         <th class="bg-gray">PPR</th>
-                                        <td>{{ $admin->ppr_number }}</td>
+                                        <td>{{ $admin->user->ppr_number }}</td>
                                     </tr>
                                 </table>
                             </div>

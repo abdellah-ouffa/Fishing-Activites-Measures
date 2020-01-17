@@ -24,17 +24,17 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="text-center">
-                            <img id="admin-picture" class="img-circle border-gray" style="width: 150px; height: 150px;" src="{{ $admin->picture_path }}" >
+                            <img id="admin-picture" class="img-circle border-gray" style="width: 150px; height: 150px;" src="{{ $admin->user->picture_path }}" >
                             <input type="file" class="hide" name="picture" id="file-admin-picture">
                         </div>
                         <div>
                             <div class="text-center pt-2">
                                 <p class="list-item-heading pt-2 text-bold">
-                                    <strong>{{ $admin->full_name }}</strong>
+                                    <strong>{{ $admin->user->full_name }}</strong>
                                 </p>
                             </div>
                             <p class="text-center">
-                                {!! $admin->is_active_badge !!}
+                                {!! $admin->user->is_active_badge !!}
                             </p>
                         </div>
                     </div>
@@ -51,15 +51,15 @@
                                 <table class="table table-bordered table-show mb-0"> 
                                     <tr>
                                         <th class="bg-gray">Civilité</th>
-                                        <td>{!! $admin->gender_badge !!}</td>
+                                        <td>{!! $admin->user->gender_badge !!}</td>
                                     </tr>
                                     <tr>
                                         <th class="bg-gray">Prénom & Nom</th>
-                                        <td>{{ $admin->full_name }}</td>
+                                        <td>{{ $admin->user->full_name }}</td>
                                     </tr>
                                     <tr>
                                         <th class="bg-gray">N° Tel</th>
-                                        <td>{{ $admin->tel }}</td>
+                                        <td>{{ $admin->user->tel }}</td>
                                     </tr>
                                 </table>
                             </div>
