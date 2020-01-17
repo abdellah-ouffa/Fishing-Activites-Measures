@@ -17,6 +17,7 @@ class Constant
 	**/
 	public const USER_ROLES = [
 		'admin' => 'admin',
+		'agent' => 'agent',
 	];
 
 	/*

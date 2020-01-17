@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Helpers\Constant;
 use App\Helpers\Helper;
 use App\Models\User;
+use App\Models\Admin;
 
 class AdminController extends Controller
 {
@@ -18,9 +19,7 @@ class AdminController extends Controller
     public function index()
     {
         return view('admin.admins.index', [
-            'admins' => User::where('role', Constant::USER_ROLES['admin'])
-                            ->filter(request()->all())
-                            ->paginate(Constant::COUNT_PER_PAGE)
+            'admins' => Admin::paginate(Constant::COUNT_PER_PAGE)
         ]);
     }
 
@@ -43,14 +42,19 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $user = User::create([
-            'first_name' => $request->first_name, 
+            'first_name' => $request->first_name,
             'last_name' => $request->last_name, 
-            'picture' => Helper::saveFileFromRequest($request, 'picture'), 
-            'email' => $request->email, 
-            'password' => bcrypt($request->password), 
-            'visible_password' => $request->password,
+            'is_active' => true,
+            'role' => Constant::USER_ROLES['admin'],
             'ppr_number' => $request->ppr_number,
-            'role' => Constant::USER_ROLES['admin']
+        ]);
+
+        Admin::create([
+            'email' => $request->email, 
+            'password' => bcrypt($request->password),
+            'visible_password' => $request->password,
+            'user_id' => $user->id, 
+            'picture' => Helper::saveFileFromRequest($request, 'picture'), 
         ]);
 
         session()->flash('success', 'Saved');
@@ -67,7 +71,7 @@ class AdminController extends Controller
     public function show($id)
     {
         return view('admin.admins.show', [
-            'admin' => User::findOrFail($id)
+            'admin' => >Admin::findOrFail($id)
         ]);
     }
 
@@ -80,7 +84,7 @@ class AdminController extends Controller
     public function edit($id)
     {
         return view('admin.admins.edit', [
-            'admin' => User::findOrFail($id)
+            'admin' => Admin::findOrFail($id)
         ]);
     }
 
@@ -93,13 +97,19 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
+        $admin = Admin::findOrFail($id);
+
+        $admin->update([
+            'email' => $request->email, 
+            'password' => bcrypt($request->password),
+            'visible_password' => $request->password,
+            'user_id' => $user->id, 
+            'picture' => Helper::saveFileFromRequest($request, 'picture', $user->picture) ?? $user->picture, 
+        ]);
 
         $user->update([
-            'first_name' => $request->first_name, 
+            'first_name' => $request->first_name,
             'last_name' => $request->last_name, 
-            'picture' => Helper::saveFileFromRequest($request, 'picture', $user->picture) ?? $user->picture, 
-            'email' => $request->email, 
             'password' => $request->password ? bcrypt($request->password) : $user->password, 
             'visible_password' => $request->password ? $request->password : $user->visible_password, 
             'ppr_number' => $request->ppr_number, 
@@ -119,8 +129,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
-        $user->delete();
+        $admin = Admin::findOrFail($id);
+        $admin->user->delete();
 
         session()->flash('success', 'Updated');
 

@@ -38,7 +38,7 @@
                                 <div class="separator mb-4"></div>
                                 <table class="table table-striped table-bordered ">
                                     <tr>
-                                        <th width="20%">Cas en question</th>
+                                        <th width="20%" style="color: orange">Cas en question</th>
                                         @foreach ($studyCaseElements as $element)
                                             <th>{{ $element->name }}</th>
                                         @endforeach

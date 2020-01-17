@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +11,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group([
+    'namespace' => 'API\V1',
+    'middleware' => 'jwt.auth',
+    'prefix' => 'v1'
+], function() {
+	Route::get('rules', 'RulesController@index');
+});
+
+Route::group([
+    'namespace' => 'API\V1',
+    'prefix' => 'v1'
+], function() {
+    Route::get('login', 'AuthController@login');
 });

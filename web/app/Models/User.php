@@ -4,6 +4,7 @@ namespace App\Models;
 
 use EloquentFilter\Filterable;
 use Illuminate\Notifications\Notifiable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -11,20 +12,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $gender
  * @property string $first_name
  * @property string $last_name
- * @property string $picture
  * @property string $tel
- * @property string $email
- * @property string $password
- * @property string $visible_password
  * @property string $role
  * @property string $remember_token
  * @property string $created_at
  * @property string $updated_at
- * @property Message[] $messages
- * @property Student $student
- * @property Teacher $teacher
  */
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
     use Filterable;
@@ -48,10 +42,7 @@ class User extends Authenticatable
         'gender', 
         'first_name', 
         'last_name', 
-        'picture', 
-        'email', 
-        'password', 
-        'visible_password', 
+        'tel', 
         'ppr_number',
         'role', 
         'is_active', 
@@ -63,7 +54,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -76,6 +66,16 @@ class User extends Authenticatable
         'created_at', 
         'updated_at'
     ];
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 
     /**
      * Get the fullName of User
@@ -120,3 +120,37 @@ class User extends Authenticatable
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
