@@ -1,32 +1,46 @@
 ion-content{
-    --background: #FFF;
-    // --background-image: url('assets/img/logo/login-bg.png');
+  // --background: #00F;
+  --background: #fff url('/assets/img/pages/login/bg.png') no-repeat center center / cover;
 }
 .container {
-    display: flex;           /* establish flex container */
-    flex-direction: row;  /* make main axis vertical */
-    justify-content: center; /* center items vertically, in this case */
-    align-items: center;     /* center items horizontally, in this case */
-    height: 100%;
+  display: flex;           /* establish flex container */
+  flex-direction: row;  /* make main axis vertical */
+  justify-content: center; /* center items vertically, in this case */
+  align-items: center;     /* center items horizontally, in this case */
+  height: 100%;
 }
 .vertical-center {
-    text-align: center;
+  text-align: center;
 }
 .logo {
-    margin: 0 auto;
-    margin-top: 50px;
-    height: 265px;
-    padding-bottom: 50px;
+  margin: 0 auto;
+  margin-top: 100px;
+  height: 150px;
+  padding-bottom: 0px;
 }
 .header {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 .login-button {
-    width: 100%;
+  width: 100%;
+  --border-radius: 0px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
 }
 .ppr-number-input {
-    background: #00F;
-    padding: 10px;
-    color: #fff;
+  background: transparent;
+  padding: 10px;
+  color: #fff;
+}
+
+.ppr-input {
+  --background: rgba(82, 90, 111, .6);
+  width: 100%;
+  margin-left: 1px;
+}
+
+.ppr-input ion-icon {
+  color: #a9adb8;
+  margin-right: 15px;
 }

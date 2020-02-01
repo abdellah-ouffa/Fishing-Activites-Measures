@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
+import { Helper } from './helpers/helper';
 
 @Component({
   selector: 'app-root',
@@ -10,23 +13,23 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  
+  public authUser;
   public appPages = [
     {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+      title: 'Annexes Juridiques',
+      url: '/annexe-list',
+      icon: 'paper'
     }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private router: Router,
+    private helper: Helper,
+    private authService: AuthService
   ) {
     this.initializeApp();
   }
@@ -35,6 +38,17 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+    });
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
+  onMenuOpen() {
+    this.helper.getAuthUser().then(user => {
+      this.authUser = JSON.parse(user);
+      console.log(this.authUser)
     });
   }
 }

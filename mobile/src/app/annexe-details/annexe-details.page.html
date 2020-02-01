@@ -1,0 +1,23 @@
+<ion-header translucent="true" no-border >
+  <ion-toolbar class="toolbar" color="translucent">
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <div class="global-title" padding="true">
+    <small class="subtitle">Annexe Juridique: {{ annexe.id }}</small>
+    <h4>{{ annexe.name }}</h4>
+  </div>
+  <div class="elements-list">
+    <ion-card class="element-card" *ngFor="let element of annexe.elements; index as i">
+      <ion-card-header>
+        <ion-card-subtitle class="title">{{ element.name }}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>{{ element.content }}</ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

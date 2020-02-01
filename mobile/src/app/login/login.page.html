@@ -1,13 +1,16 @@
-<ion-content id="login-page" padding class="container" style="background-image: url(assets/img/logo/login-bg.png)">
+<ion-content id="login-page" padding class="container">
   <div class="vertical-center" padding>
     <div class="header">
       <img class="logo" src="assets/img/logo/login-logo.png" />
     </div>
     <br>
     <form (ngSubmit)="login()">
-      <ion-input class="ppr-number-input" name="ppr_number" [(ngModel)]="credentials.PPRNumber" required placeholder="N°. PPR" type="number"></ion-input>
-      <br>
-      <ion-button class="login-button" type="submit">Connecter</ion-button>
+      <ion-item class="ppr-input">
+          <ion-icon name='lock' item-right></ion-icon>
+          <ion-input class="ppr-number-input" name="ppr_number" [(ngModel)]="credentials.PPRNumber" required placeholder="Votre N°. PPR" type="number"></ion-input>
+       </ion-item>
+       <br>
+      <ion-button class="login-button" color="danger" type="submit">Se Connecter</ion-button>
     </form>
   </div>
 </ion-content>

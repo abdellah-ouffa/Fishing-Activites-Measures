@@ -13,8 +13,9 @@ class AuthController extends Controller
     public function login()
     {
         $agent = Agent::whereHas('user', function($query) {
-                        $query->where('ppr_number', request()->PPRNumber);
-                    })->first();
+            $query->where('ppr_number', request()->PPRNumber)
+                ->where('is_active', true);
+        })->first();
 
         if($agent && $token = JWTAuth::fromUser($agent->user)) {
             return response()->json(AgentResource::make($agent), 200);

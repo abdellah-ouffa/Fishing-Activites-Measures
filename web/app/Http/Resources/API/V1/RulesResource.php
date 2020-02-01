@@ -19,7 +19,8 @@ class RulesResource extends JsonResource
         $rules = [];
         
         $rule = [
-            'name' => $this->name
+            'name' => $this->name,
+            'id' => $this->id,
         ];  
 
         foreach ($studyCaseElements as $element) {

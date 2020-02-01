@@ -10,7 +10,7 @@
                     <div class="card auth-card">
                         <div class="position-relative image-side">
 
-                            <p class="text-white h2">Accéder à votre compte</p>
+                            <p class="text-white h2">DCAPM</p>
 
                             <p class="white mb-0">
                                 Veuillez utiliser vos identifiants pour vous connecter.
