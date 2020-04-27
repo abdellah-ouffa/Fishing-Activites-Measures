@@ -1,0 +1,46 @@
+<ion-header translucent="true" no-border >
+  <ion-toolbar class="toolbar  ion-toolbar" color="white">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ fish.french_name }}
+    </ion-title>
+    <ion-buttons  slot="secondary">
+      <ion-button (click)="onDetailsMeasures()">
+        <ion-icon slot="icon-only" name="list"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="http://www.localhost:100/lab/fishing-activites-measures/web/public/{{ fish.image }}"/>
+    <ion-card-content>
+      <div>
+          <div class="table">
+            <div class="head">Categorie</div>
+            <div class="content">{{ fish.category.name }}</div>
+          </div>
+          <div class="table">
+            <div class="head">Nom en français</div>
+            <div class="content">{{ fish.french_name }}</div>
+          </div>
+          <div class="table">
+            <div class="head">Nom Scientifique</div>
+            <div class="content">{{ fish.scientific_name }}</div>
+          </div>
+          <div class="table">
+            <div class="head">Taille marchande</div>
+            <div class="content">{{ fish.commercial_size }}</div>
+          </div>
+          <div class="table">
+            <div class="head">Normes de mensurations</div>
+            <div class="content">{{ fish.measurement_standards }}</div>
+          </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

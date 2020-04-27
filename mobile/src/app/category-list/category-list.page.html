@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar class="ion-toolbar">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Categories
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="category-card" 
+            *ngFor="let category of categories; index as i"
+            (click)="onDetailsCategory(category)">
+    <h3>{{ category.name }}</h3>
+  </ion-card>
+</ion-content>

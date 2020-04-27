@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Laravel CORS Options
+    | Laravel CORS Options cP(4^p4HrX6o2PUZOz)V
     |--------------------------------------------------------------------------
     |
     | The allowed_methods and allowed_headers options are case-insensitive.

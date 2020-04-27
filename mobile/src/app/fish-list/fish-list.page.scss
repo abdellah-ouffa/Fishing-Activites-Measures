@@ -1,0 +1,34 @@
+ion-content{
+--ion-background-color:#e8ecef;
+}
+
+ion-header {
+    --background: #3c4256;
+    --ion-color-base: #3c4256 !important;
+    box-shadow: none !important;
+}
+
+ion-toolbar {
+    --background: #3c4256;
+    --ion-color-base: #3c4256 !important;
+}
+
+.ion-toolbar {
+    --background: #3f4458;
+    color: #fff
+}
+
+ion-card {
+    --background: #3f4458;
+}
+
+ion-card img {
+    height: 245px;
+    background: #fff;
+}
+
+ion-card ion-card-title {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+}

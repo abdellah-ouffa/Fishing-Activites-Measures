@@ -20,6 +20,11 @@ export class AppComponent {
       title: 'Annexes Juridiques',
       url: '/annexe-list',
       icon: 'paper'
+    },
+    {
+      title: 'Categories',
+      url: '/category-list',
+      icon: 'boat'
     }
   ];
 

@@ -9,8 +9,8 @@
           <p class="e-mail">N°. PPR: {{ authUser?.PPRNumber }}</p>
         </div>
         <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let page of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[page.url]">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item *ngFor="let page of appPages" [routerDirection]="'root'" [routerLink]="[page.url]">
               <ion-icon slot="start" [name]="page.icon"></ion-icon>
               <ion-label>
                 {{ page.title }}

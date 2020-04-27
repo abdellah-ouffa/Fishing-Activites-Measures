@@ -24,6 +24,22 @@ const routes: Routes = [
   {
     path: 'annexe-list',
     loadChildren: () => import('./annexe-list/annexe-list.module').then( m => m.AnnexeListPageModule)
+  },
+  {
+    path: 'category-list',
+    loadChildren: () => import('./category-list/category-list.module').then( m => m.CategoryListPageModule)
+  },
+  {
+    path: 'fish-list',
+    loadChildren: () => import('./fish-list/fish-list.module').then( m => m.FishListPageModule)
+  },
+  {
+    path: 'fish-details',
+    loadChildren: () => import('./fish-details/fish-details.module').then( m => m.FishDetailsPageModule)
+  },
+  {
+    path: 'fish-measure',
+    loadChildren: () => import('./fish-measure/fish-measure.module').then( m => m.FishMeasurePageModule)
   }
 ];
 

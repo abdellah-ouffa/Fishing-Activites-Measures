@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property string $created_at
  * @property string $updated_at
+ * @property Fish[] $fishes
  */
 class Category extends Model
 {
@@ -27,9 +28,8 @@ class Category extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function subCategories()
+    public function fishes()
     {
-        return $this->hasMany(SubCategory::class, 'category_id');
+        return $this->hasMany(Fish::class, 'category_id');
     }
-
 }

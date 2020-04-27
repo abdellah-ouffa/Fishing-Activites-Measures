@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property string $name
+ * @property string $location
  * @property string $created_at
  * @property string $updated_at
- * @property ControlMeasureZone[] $controlMeasureZones
- * @property SubCategoryZone[] $subCategoryZones
+ * @property MeasureAttributeZone[] $measureAttributeZones
  */
 class Zone extends Model
 {
@@ -24,25 +23,16 @@ class Zone extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'created_at', 'updated_at'];
+    protected $fillable = ['location', 'created_at', 'updated_at'];
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
      */
-    public function zones()
+    public function measureAttribute()
     {
-        return $this->belongsToMany(ControlMeasure::class, 'control_measure_zones')
-                    ->as('ControlMeasureZone')
-                    ->withPivot('control_measure_id', 'zone_id', 'created_at', 'updated_at');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
-     */
-    public function subCategories()
-    {
-        return $this->belongsToMany(SubCategory::class, 'sub_category_zones')
-                    ->as('SubCategoryZone')
-                    ->withPivot('sub_category_id', 'zone_id', 'created_at', 'updated_at');
+        return $this->belongsToMany(MeasureAttribute::class, 'measure_attribute_zones', 'zone_id', 'attribute_id')
+                    ->as('MeasureAttributeZone');
+                    // ->withPivot('attribute_id', 'zone_id', 'created_at', 'updated_at');
     }
 }

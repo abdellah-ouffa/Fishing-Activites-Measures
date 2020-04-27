@@ -20,7 +20,6 @@ export class AnnexesService {
   }
 
   getAnnexes(token): Observable<any> {
-    console.log(token);
     const httpOptions = {
       headers: new HttpHeaders({
           'Authorization': 'Bearer ' + token

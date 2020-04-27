@@ -17,6 +17,8 @@ Route::group([
     'prefix' => 'v1'
 ], function() {
 	Route::get('rules', 'RulesController@index');
+	Route::get('categories', 'CategoryController@index');
+	Route::get('fishes/{id}/measures', 'FishController@measures')->name('fishes.measures');
 });
 
 Route::group([

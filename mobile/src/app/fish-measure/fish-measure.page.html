@@ -1,0 +1,26 @@
+<ion-header translucent="true" no-border >
+  <ion-toolbar class="toolbar  ion-toolbar" color="white">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Measures: {{ fish.french_name }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let measure of measures">
+    <ion-card-header>
+      <p>{{ measure.location }}</p>
+    </ion-card-header>
+    <ion-card-content>
+      <div>
+          <div class="table" *ngFor="let measureAttribute of measure.measure_attribute">
+            <div class="head">{{ measureAttribute.name }}</div>
+            <div class="content">{{ measureAttribute.value }}</div>
+          </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

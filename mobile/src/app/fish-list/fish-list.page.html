@@ -1,0 +1,22 @@
+<ion-header translucent="true" no-border >
+  <ion-toolbar class="toolbar  ion-toolbar" color="white">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Especes ({{ category.name }})
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let fish of category.fishes; index as i"
+            (click)="onDetailsFish(fish)">
+    <img src="http://www.localhost:100/lab/fishing-activites-measures/web/public/{{ fish.image }}">
+    <ion-card-content>
+      <ion-card-title>
+        {{ fish.french_name }}
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
