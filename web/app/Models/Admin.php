@@ -24,6 +24,7 @@ class Admin extends Model
     {
         return $this->provideFilter(\App\ModelFilters\AdminFilter::class);
     }
+    
     /**
      * The "type" of the auto-incrementing ID.
      * 
@@ -50,5 +51,16 @@ class Admin extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    /**
+     * Get the image path of User
+     *
+     * @return string
+     */
+    public function getPicturePathAttribute() {
+        return $this->picture 
+                ? asset('storage/' . $this->picture)
+                : asset('assets/img/profile-pic-l.png');
     }
 }

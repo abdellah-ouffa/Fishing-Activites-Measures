@@ -23,9 +23,9 @@ class CreateFishesTable extends Migration
             $table->string('measurement_standards')->nullable();
             $table->text('additionnal_attributes')->nullable();
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
             $table->unsignedBigInteger('measure_id');
-            $table->foreign('measure_id')->references('id')->on('measures')->onDelete('cascade');
+            $table->foreign('measure_id')->references('id')->on('measures')->onDelete('set null');
             $table->timestamps();
         });
     }

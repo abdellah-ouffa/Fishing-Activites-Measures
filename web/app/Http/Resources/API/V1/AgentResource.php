@@ -21,7 +21,7 @@ class AgentResource extends JsonResource
             'gender' => $this->user->gender,
             'tel' => $this->user->tel,
             'PPRNumber' => $this->user->ppr_number,
-            'picture' => $this->user->picturePath,
+            'picture' => $this->picturePath,
             'token' => \JWTAuth::fromUser($this->user),
         ];
     }

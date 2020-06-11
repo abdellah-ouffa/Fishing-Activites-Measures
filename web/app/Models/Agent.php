@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use EloquentFilter\Filterable;
 
 /**
  * @property integer $id
@@ -12,6 +13,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Agent extends Model
 {
+    use Filterable;
+
+    public function modelFilter()
+    {
+        return $this->provideFilter(\App\ModelFilters\AgentFilter::class);
+    }
 
     public function user()
     {
@@ -33,5 +40,16 @@ class Agent extends Model
         'created_at', 
         'updated_at'
     ];
+
+    /**
+     * Get the image path of User
+     *
+     * @return string
+     */
+    public function getPicturePathAttribute() {
+        return $this->picture 
+                ? asset('storage/' . $this->picture)
+                : asset('assets/img/profile-pic-l.png');
+    }
 
 }

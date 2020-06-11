@@ -24,4 +24,18 @@ class Constant
 	* Default date format
 	*/
 	public const DATE_FORMAT = 'd/m/Y';
+
+	/*
+	* Default measure attributes
+	*/
+	public const DEFAULT_MEASURE_ATTRIBUTES = [
+		'Effort de pêche',
+		'Quota',
+		'Mailing',
+		'Engins de pêche',
+		'Période d’interdiction',
+		'Taille réglementaire',
+		'Entité de gestion',
+		'Référence réglementaire ',
+	];
 }

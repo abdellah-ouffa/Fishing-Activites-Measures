@@ -36,4 +36,9 @@ class MeasureAttribute extends Model
     {
         return $this->belongsTo(Measure::class, 'measure_id');
     }
+
+    public function zones()
+    {
+        return $this->belongsToMany(Zone::class, 'measure_attribute_zones', 'attribute_id', 'zone_id');
+    }
 }

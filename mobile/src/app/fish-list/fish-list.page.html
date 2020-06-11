@@ -12,7 +12,7 @@
 <ion-content>
   <ion-card *ngFor="let fish of category.fishes; index as i"
             (click)="onDetailsFish(fish)">
-    <img src="http://www.localhost:100/lab/fishing-activites-measures/web/public/{{ fish.image }}">
+    <img src="http://www.localhost:100/lab/fishing-activites-measures/web/public/storage/{{ fish.image }}">
     <ion-card-content>
       <ion-card-title>
         {{ fish.french_name }}

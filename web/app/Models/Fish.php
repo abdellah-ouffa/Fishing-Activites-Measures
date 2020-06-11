@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use EloquentFilter\Filterable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -22,6 +23,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Fish extends Model
 {
+    use Filterable;
+
+    public function modelFilter()
+    {
+        return $this->provideFilter(\App\ModelFilters\FishFilter::class);
+    }
+
     /**
      * The table associated with the model.
      * 
@@ -41,7 +49,7 @@ class Fish extends Model
     /**
      * @var array
      */
-    protected $fillable = ['category_id', 'measure_id', 'name', 'scientific_name', 'french_name', 'commercial_size', 'image', 'measurement_standards', 'additionnal_attributes', 'created_at', 'updated_at'];
+    protected $fillable = ['category_id', 'measure_id', 'scientific_name', 'french_name', 'commercial_size', 'image', 'measurement_standards', 'additionnal_attributes', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -57,5 +65,16 @@ class Fish extends Model
     public function measure()
     {
         return $this->belongsTo(Measure::class, 'measure_id');
+    }
+
+    /**
+     * Get the image path of fish
+     *
+     * @return string
+     */
+    public function getImagePathAttribute() {
+        return $this->image 
+                ? asset('storage/' . $this->image)
+                : asset('assets/img/profile-pic-l.png');
     }
 }

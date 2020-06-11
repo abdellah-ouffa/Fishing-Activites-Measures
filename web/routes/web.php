@@ -13,14 +13,10 @@ Route::post('login', 'Admin\AuthController@authenticate')->name('login');
 // Administration area routes
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'], function() {
     Route::resource('admins', 'AdminController');
+    Route::resource('agents', 'AgentController');
     Route::resource('rules', 'RulesAdministrationController');
-});
-
-Route::get('test', function () {
-	$studyCases = App\Models\StudyCase::all();
-    $studyCaseElements = App\Models\StudyCaseElement::all();
-
-    foreach ($studyCaseElements as $key => $value) {
-    	dump(optional($value->getContentBySudyCaseId(1))->content);
-    }
+    Route::resource('infractions', 'InfractionController');
+    Route::resource('fishes', 'FishController');
+    Route::resource('measures', 'MeasureController');
+    Route::resource('zones', 'ZoneController');
 });

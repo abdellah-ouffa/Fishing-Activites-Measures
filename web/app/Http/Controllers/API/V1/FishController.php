@@ -12,13 +12,14 @@ class FishController extends Controller
     public function measures($id)
     {
     	$fish = Fish::findOrFail($id);
+        $measureId = $fish->measure_id;
 
     	$resource = Zone::select('id', 'location')
-    		->with(['measureAttribute' => function ($query) {
-    			$query->select('name', 'value');
+    		->with(['measureAttribute' => function ($query) use ($measureId) {
+    			$query->select('name', 'value')->where('measure_id', $measureId);
     		}])
-    		->whereHas('measureAttribute', function ($query) use ($fish) {
-			    $query->where('measure_id', $fish->measure_id);
+    		->whereHas('measureAttribute', function ($query) use ($measureId) {
+			    $query->where('measure_id', $measureId);
 			})
 			->get()
 			->toArray();
