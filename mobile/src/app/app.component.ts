@@ -25,6 +25,11 @@ export class AppComponent {
       title: 'Categories',
       url: '/category-list',
       icon: 'boat'
+    },
+    {
+      title: 'Infractions',
+      url: '/infraction-list',
+      icon: 'information-circle-outline'
     }
   ];
 

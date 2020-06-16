@@ -40,6 +40,14 @@ const routes: Routes = [
   {
     path: 'fish-measure',
     loadChildren: () => import('./fish-measure/fish-measure.module').then( m => m.FishMeasurePageModule)
+  },
+  {
+    path: 'infraction-list',
+    loadChildren: () => import('./infraction-list/infraction-list.module').then( m => m.InfractionListPageModule)
+  },
+  {
+    path: 'infraction-details',
+    loadChildren: () => import('./infraction-details/infraction-details.module').then( m => m.InfractionDetailsPageModule)
   }
 ];
 

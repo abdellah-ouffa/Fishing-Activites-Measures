@@ -18,6 +18,7 @@ Route::group([
 ], function() {
 	Route::get('rules', 'RulesController@index');
 	Route::get('categories', 'CategoryController@index');
+	Route::get('infractions', 'InfractionController@index');
 	Route::get('fishes/{id}/measures', 'FishController@measures');
 });
 
